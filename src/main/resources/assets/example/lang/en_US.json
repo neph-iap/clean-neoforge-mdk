@@ -1,3 +1,5 @@
 {
-
+	"itemGroup.example": "Example Creative Tab",
+	"item.example.example_item": "Example Item",
+	"block.example.example_block": "Example Block"
 }

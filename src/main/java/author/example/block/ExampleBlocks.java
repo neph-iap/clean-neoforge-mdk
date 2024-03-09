@@ -23,6 +23,11 @@ public class ExampleBlocks {
     /** The register for all blocks in the mod. */
     public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(Example.MODID);
 
+	/**
+	 * An example block in the mod.
+	 */
+	public static final DeferredBlock<Block> EXAMPLE_BLOCK = blockWithItem("example_block", () -> new Block(Block.Properties.of()));
+
     /** The register for all block entities in the mod */
     public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES = DeferredRegister.create(Registries.BLOCK_ENTITY_TYPE, Example.MODID);
 
