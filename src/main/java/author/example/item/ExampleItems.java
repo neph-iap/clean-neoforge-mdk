@@ -9,12 +9,17 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
+/**
+ * Utility class for handling items in the Example mod. This class handles the instantiation of all items, all of which can be
+ * retrieved as fields of this class, as well as registering all the items via the {@link #register(IEventBus)} method which
+ * should be called in the {@link Example main} class's constructor with the given {@link IEventBus} from NeoForge.
+ */
 public class ExampleItems {
 
-    /** The registry of all items in the "Spacial & Temporal Rending" mod. */
+    /** The registry of all items in the Example mod. */
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(Example.MODID);
 
-    /** The registry of all creative tabs in the "Spacial & Temporal Rending" mod. */
+    /** The registry of all creative tabs in the Example mod. */
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, Example.MODID);
 
     /** The one and only creative tab for all items and blocks in the Example mod. */

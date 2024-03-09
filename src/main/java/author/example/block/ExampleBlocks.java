@@ -1,5 +1,7 @@
 package author.example.block;
 
+import java.util.function.Supplier;
+
 import author.example.Example;
 import author.example.item.ExampleItems;
 import net.minecraft.core.registries.Registries;
@@ -9,17 +11,13 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
-import javax.annotation.ParametersAreNonnullByDefault;
-import java.util.function.Supplier;
-
 /**
- * Utility class for handling blocks in the Spacial & Temporal Rending mod. This class
+ * Utility class for handling blocks in the Example mod. This class
  * handles the instantiation of all blocks, all of which can be retrieved as fields of this
  * class, as well as registering all the blocks via the {@link #register(IEventBus)} method
  * which should be called in the {@link Example main} class's constructor with the
  * given {@link IEventBus} from NeoForge.
  */
-@ParametersAreNonnullByDefault
 public class ExampleBlocks {
 
     /** The register for all blocks in the mod. */

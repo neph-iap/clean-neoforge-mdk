@@ -1,11 +1,13 @@
 package author.example;
 
+import org.slf4j.Logger;
+
+import com.mojang.logging.LogUtils;
+
 import author.example.block.ExampleBlocks;
 import author.example.item.ExampleItems;
-import com.mojang.logging.LogUtils;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.common.Mod;
-import org.slf4j.Logger;
 
 /**
  * The main mod class for the Example mod. This handles registering primary game elements like blocks, items, entities,
@@ -15,7 +17,7 @@ import org.slf4j.Logger;
 public class Example {
 
     /** The unique ID for this mod, which must be different from all other mods in a pack, and must match src/resources/META_INF/mods.toml */
-    public static final String MODID = "examplemod";
+    public static final String MODID = "example";
     /** A direct reference to a logger */
     public static final Logger LOGGER = LogUtils.getLogger();
 
