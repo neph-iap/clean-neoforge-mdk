@@ -46,4 +46,4 @@ as well as the project's non-goals:
 -   Do not provide specialized classes for blocks or items; Do not add bloat that will go unused by many users
 -   Do not rovide annotations or other code specific to one IDE or text editor; Keep code generalized and accessible to all users of any editors.
 -   Do not go against NeoForge recommendations or code styles
--   Discard old versions of the MDK; Keep Minecraft/NeoForge updates to their own branch with the name of the Minecraft update.
+-   Do not discard old versions of the MDK; Keep Minecraft/NeoForge updates to their own branch with the name of the Minecraft update.
