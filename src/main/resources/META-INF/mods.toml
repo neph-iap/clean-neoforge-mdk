@@ -1,22 +1,93 @@
-modLoader="javafml" #mandatory
-loaderVersion="${loader_version_range}" #mandatory
-license="${mod_license}"
+# This is the name of the mod loader to use for your mod. If you know what you're doing with this, then feel free to change it to your desired
+# loader of course. If you don't, then leave this as "javafml". 
+modLoader = "javafml"
+
+# The loader version of the mod loader. For standard FML mods, this is just the FML version. This is a number (in a string) that is bumped occasionally
+# by NeoForge. The version that comes with this template should be up-to-date with the current version, but you can check
+# [the official NeoForge MDK](https://github.com/neoforged/MDK/blob/d28b3b6d7cb13c4ded5dbfc53ba8e7d29348b706/src/main/resources/META-INF/mods.toml#L8C1-L9C1)
+# to see the official current version, especially in the case that you want to update your mod after a long time after using this template. If you don't know
+# what your doing with this, leave it as is.
+loaderVersion = "47"
+
+# The license for your mod. This is generally a short name for the license, i.e., "MIT" or "GPLv3". This tells other developers what rights they have to your
+# code, such as:
+#
+# - Can anyone use your code in their mod?
+# - Can anyone use your code on other products?
+# - Can anyone use modified versions of your code?
+# - Can anyone use your code on commercial products?
+#
+# ...etc. This is a very important field, as it tells other developers what they can and can't do with your code. If you're not sure what license to use, you can
+# use the [Choose a License](https://choosealicense.com/) website to help you pick one. Legally speaking, if no license is specified, you have "all rights reserved",
+# meaning that no one can use, modify, or distribute your code; In other words, it is the most strict license. If you want to allow other developers to use your code,
+# Consider researching licenses like MIT, Apache, or GPL.
+license = "All Rights Reserved"
 
 [[mods]]
-modId="examplemod"
-version="${mod_version}"
-displayName="${mod_name}"
-authors="${mod_authors}"
-description='''${mod_description}'''
+
+# The id for your mod. This must not be the same as any other mod in the pack, and should be a snake_case identifier. This also must match the mod Id specified in
+# your main mod class; In this template that's `src/main/java/author/example/Example.java`. Note that `@Mod` annotation on that class; The mod id string passed to that
+# must match this value exactly. Additionally, the subfolder of `assets` must match that ID, i.e., all assets of your mod should be in `assets/modid`, in this case,
+# `assets/example`. In general, when updating your mod ID, ensure that you cover all of the following cases:
+#
+# - The mod ID in `src/main/java/author/example/Example.java`. It is convention to make this a `public static final String` field of the class, but technically all
+# that's necessary is that the string passed to the `@Mod` annotation matches this value.
+# - The directory name of your mod's assets, i.e., `assets/modid`, in this case, `assets/example`.
+# - This string itself in your `mods.toml` file.
+#
+# While not necessary, the following are also good places to update your mod ID:
+# - The directory name of your mod's java code, i.e, `src/main/java/author/modid`, in this case, `src/main/java/author/example`.
+# - The mod ID string in your main mod class.
+modId = "example"
+
+# The version of this mod. This generally uses [SemVer](http://semver.org). In short, this tells players and other mods what version of the mod you have.
+# SemVer splits the version into 3 numbers: major version, minor version, and patch. You should update your version every time you publish your mod, no matter
+# how small the changes are. Here's a quick way to figure out what version you're on:
+#
+# - If you are just starting your mod, you should start with `1.0.0`. Once you publish your mod, this signifies that this is the first major release. If you plan
+# on publishing your mod while it may still have bugs/unfinished features, you can start with `0.1.0` or `0.0.1` instead.
+# - When you make a "patch" you update the third number by 1, even if it goes over 9. A "patch" is a bug fix or very small update that doesn't add any new features.
+# Generally these are just fixes, code organization improvements, documentation updates, etc. For example, if you're on version 1.0.4 and you fix a bug, you should
+# update your version to 1.0.5, or if you're on 1.0.14 you can update to 1.0.15.
+# - When you make a "minor update" you update the second number by 1, and set the third number to 0. A "minor update" is an update that adds new features, but doesn't
+# break compatibility with existing features. This means that while you added new functions/items/etc., you didn't remove any public functions/items/etc. This is because
+# other mods and modpacks may depend on your mod, and if you remove something, you may break their mod or modpack. Incrementing your "minor version" indicates to other
+# mods and packs that they can safely update to your new version without breaking any addons or ways they use your mod. For example, if you're on version 1.0.9 and you add
+# a new item, you should update your version to 1.1.0.
+# - When you create "breaking changes" - that is, fundamental changes to your code that removes functions, items, blocks, fields, etc., you should update your "major version".
+# In this case, you update the first number by 1, and set the second and third numbers to 0. This indicates to other mods and modpacks that they should be careful updating to
+# your new version, as it may break their mod or modpack. For example, if you're on version 1.11.24 and you remove a public function, you should update your version to 2.0.0.
+version = "1.0.0"
+
+# This is the display name of your mod, which should be a properly formatted human-readable string, often in Title Case. This is what shows up under the `Mods`
+# button on the main menu, and is the name of your mod in the mod list. This can be anything you want, but it's generally a good idea to make it something unique and
+# relevant to your mod. Changing this does not require changing anything elsewhere.
+displayName = "Example Mod"
+
+# This is the author(s) of your mod. This is a properly formatted human-readable string. This can be seen in the mod list, and is generally used to credit the mod author.
+# Typically, for multiple authors, this is a comma-separated list of names, i.e., `"Violet Iapalucci, John Doe"`. Changing this does not require changing anything elsewhere.
+authors = "You!"
+
+# This is the description of your mod. This is a properly formatted human-readable string. This can be seen in the mod list, and is generally used to describe what your mod does.
+# You can make this as long or as short as you want, but it's generally a good idea to make it something unique and relevant to your mod. This can also be spanned
+# over multiple lines. Changing this does not require changing anything elsewhere.
+description = '''An example mod template generated from clean-neoforge-mdk'''
+
+## ----------------------------------------------------------------------------------------------------------------------------------------------------------------------##
+
+# OPTIONAL - the following fields are all optional, and allow specifying dependencies on other mods (for addons, etc.), url's for the mod, and other metadata. Feel free
+# to skip these if you don't know what they do or feel like you need them; Your mod will function perfectly fine without them.
+
+## ----------------------------------------------------------------------------------------------------------------------------------------------------------------------##
 
 # A URL to query for updates for this mod. See the JSON update specification https://docs.neoforged.net/docs/misc/updatechecker/
-#updateJSONURL="https://change.me.example.invalid/updates.json" #optional
+#updateJSONURL = "https://change.me.example.invalid/updates.json" #optional
 # A URL for the "homepage" for this mod, displayed in the mod UI
-#displayURL="https://change.me.to.your.mods.homepage.example.invalid/" #optional
+#displayURL = "https://change.me.to.your.mods.homepage.example.invalid/" #optional
 # A file name (in the root of the mod JAR) containing a logo for display
-#logoFile="examplemod.png" #optional
+#logoFile = "examplemod.png" #optional
 # A text field displayed in the mod UI
-#credits="" #optional
+#credits = "" #optional
 # A text field displayed in the mod UI
 # Display Test controls the display for your mod in the server connection screen
 # MATCH_VERSION means that your mod will cause a red X if the versions on client and server differ. This is the default behaviour and should be what you choose if you have server and client elements to your mod.
@@ -24,37 +95,37 @@ description='''${mod_description}'''
 # IGNORE_ALL_VERSION means that your mod will not cause a red X if it's present on the client or the server. This is a special case and should only be used if your mod has no server component.
 # NONE means that no display test is set on your mod. You need to do this yourself, see IExtensionPoint.DisplayTest for more information. You can define any scheme you wish with this value.
 # IMPORTANT NOTE: this is NOT an instruction as to which environments (CLIENT or DEDICATED SERVER) your mod loads on. Your mod should load (and maybe do nothing!) whereever it finds itself.
-#displayTest="MATCH_VERSION" # MATCH_VERSION is the default if nothing is specified (#optional)
+#displayTest = "MATCH_VERSION" # MATCH_VERSION is the default if nothing is specified (#optional)
 
 # A dependency - use the . to indicate dependency for a specific modid. Dependencies are optional.
 #[[dependencies.${mod_id}]] #optional
 #    # the modid of the dependency
-#    modId="neoforge" #mandatory
+#    modId = "neoforge" #mandatory
 #    # The type of the dependency. Can be one of "required", "optional", "incompatible" or "discouraged" (case-insensitive).
 #    # 'required' requires the mod to exist, 'optional' does not
 #    # 'incompatible' will prevent the game from loading when the mod exists, and 'discouraged' will show a warning
-#    type="required" #mandatory
+#    type = "required" #mandatory
 #    # Optional field describing why the dependency is required or why it is incompatible
-#    # reason="..."
+#    # reason = "..."
 #    # The version range of the dependency
-#    versionRange="${neo_version_range}" #mandatory
+#    versionRange = "${neo_version_range}" #mandatory
 #    # An ordering relationship for the dependency.
 #    # BEFORE - This mod is loaded BEFORE the dependency
 #    # AFTER - This mod is loaded AFTER the dependency
-#    ordering="NONE"
+#    ordering = "NONE"
 #    # Side this dependency is applied on - BOTH, CLIENT, or SERVER
-#    side="BOTH"
+#    side = "BOTH"
 ## Here's another dependency
 #[[dependencies.${mod_id}]]
-#    modId="minecraft"
-#    type="required"
+#    modId = "minecraft"
+#    type = "required"
 #    # This version range declares a minimum of the current minecraft version up to but not including the next major version
-#    versionRange="${minecraft_version_range}"
-#    ordering="NONE"
-#    side="BOTH"
+#    versionRange = "${minecraft_version_range}"
+#    ordering = "NONE"
+#    side = "BOTH"
 
 # Features are specific properties of the game environment, that you may want to declare you require. This example declares
 # that your mod requires GL version 3.2 or higher. Other features will be added. They are side aware so declaring this won't
 # stop your mod loading on the server for example.
 #[features.${mod_id}]
-#openGLVersion="[3.2,)"
+#openGLVersion = "[3.2,)"

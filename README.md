@@ -1,28 +1,49 @@
+# Clean NeoForge MDK
 
-Installation information
-=======
+`clean-neoforge-mdk` is a fork of [the official NeoForge MDK](https://github.com/neoforged/MDK) that is reorganized to provide a cleaner and more organized template.
 
-This template repository can be directly cloned to get you started with a new
-mod. Simply create a new repository cloned from this one, by following the
-instructions at [github](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template).
+## Installation
 
-Once you have your clone, simply open the repository in the IDE of your choice. The usual recommendation for an IDE is either IntelliJ IDEA or Eclipse.
+### With GitHub and Version Control
 
-> **Note**: For Eclipse, use tasks in `Launch Group` instead of ones founds in `Java Application`. A preparation task must run before launching the game. NeoGradle uses launch groups to do these subsequently.
+1. Click `Use this template`, and then `Create a new repository`. Give your repository a name, a description, and your desired visibility. Click `Create repository`.
+2. Click `<> Code` and copy the `HTTPS` link to your clipboard.
+3. Open command line, `cd` into your desired location, and type `git clone <url>`, where `url` is the HTTPS link you copied previously.
 
-If at any point you are missing libraries in your IDE, or you've run into problems you can
-run `gradlew --refresh-dependencies` to refresh the local cache. `gradlew clean` to reset everything 
-{this does not affect your code} and then start the process again.
+That's it! Your project is set up and ready for use with Git.
 
-Mapping Names:
-============
-By default, the MDK is configured to use the official mapping names from Mojang for methods and fields 
-in the Minecraft codebase. These names are covered by a specific license. All modders should be aware of this
-license, if you do not agree with it you can change your mapping names to other crowdsourced names in your 
-build.gradle. For the latest license text, refer to the mapping file itself, or the reference copy here:
-https://github.com/NeoForged/NeoForm/blob/main/Mojang.md
+### Without Version Control
 
-Additional Resources: 
-==========
-Community Documentation: https://docs.neoforged.net/  
-NeoForged Discord: https://discord.neoforged.net/
+1. Open command line, `cd` into your desired location, and type `git clone https://github.com/neph-iap/clean-neoforge.git`.
+
+That's it! Your project is set up and ready to code in.
+
+### Next Steps
+
+Once you have a local copy of the template, be sure to update the information in `src/main/resources/META-INF/mods.toml`. Read the documentation carefully, particularly when updating your mod's ID; There are several steps to doing this and you should be extra careful that you do them all correctly to make everything work properly.
+
+### Testing Your Mod
+
+You can run your mod in Minecraft to test it by opening a command line instance at the location of your mod's root folder and running `./gradlew runClient`. Gradle is a "build tool" for Java, and allows making different "tasks" that you can run with the `gradlew` file. The most important one you'll need is `./gradlew runClient`, which launches a Minecraft instance with your mod, allowing you to test it out. When testing your mod, if thing's dont work as expected, try the following steps:
+
+-   Delete your current world and create a new one. Sometimes (rarely, but not never) reusing an existing world that was created with an earlier version of your mod's code can cause strange issues or behavior. If you are getting odd or inexplicable behavior, consider trying this.
+-   Delete the `build` folder in your root directory. This is created by Gradle when running certain tasks such as `runClient`, and contains cached information about your code. In some cases, when things go wrong or Gradle is acting funky, this can act as a sort of reset for the tool.
+-   Look at the source code for other (preferably simple) mods to see their file structure. Minecraft has a very specific file structure for certain things such as assets, and often it can be confusing remembering which directories go in which other directories and remembering the exact names needed. Given that NeoForge documentatation (and Forge documentation in general) is quite sparse at the moment, consider checking out other open-source mods and how they structure their files.
+
+## Contributing
+
+Feel free to file issues with bugs or request new features. Keep in mind the following goals of the project:
+
+-   Be a pre-organized NeoForge MDK with multiple conceptually-separated files over several directories
+-   Provide starter classes for registering items, blocks, events, entities, etc.
+-   Provide accurate and thorough documentation of all included classes, methods, and fields.
+-   Be beginner-friendly, even to those who may be new to coding in general, or just Minecraft modding, or specifically modding with NeoForge in the current version.
+-   Stay up-to-date with the latest version of Neoforge in each branch.
+
+as well as the project's non-goals:
+
+-   Do not follow a specific preference of file structure or organization; Follow the most common conventions and recommendations among mod developers
+-   Do not provide specialized classes for blocks or items; Do not add bloat that will go unused by many users
+-   Do not rovide annotations or other code specific to one IDE or text editor; Keep code generalized and accessible to all users of any editors.
+-   Do not go against NeoForge recommendations or code styles
+-   Discard old versions of the MDK; Keep Minecraft/NeoForge updates to their own branch with the name of the Minecraft update.
